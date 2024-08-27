@@ -18,33 +18,47 @@ function calculateEndTime() {
     return;
   }
   const endTime = calculateEndTimeFromStartTime(startTime);
-  addCalculation(endTime);
+  const endTime12 = convertTo12HourFormat(endTime);
+  addCalculation(endTime, endTime12);
 }
 
 function calculateEndTimeFromStartTime(startTime) {
-  const startTimeParts = startTime.split(':');
-  const startHours = parseInt(startTimeParts[0]);
-  const startMinutes = parseInt(startTimeParts[1]);
+  const timeParts = startTime.split(':');
+  const startHours = parseInt(timeParts[0]);
+  const startMinutes = parseInt(timeParts[1]);
   const totalMinutes = startHours * 60 + startMinutes;
   const endMinutes = totalMinutes + 8.5 * 60;
-  const endHours = Math.floor(endMinutes / 60) % 24;
+  const endHours = Math.floor(endMinutes / 60);
   const endMinutesRemainder = endMinutes % 60;
-  const endTimeHours = endHours % 12;
-  if (endTimeHours === 0) {
-    endTimeHours = 12;
-  }
+  const endTimeHours = endHours % 24;
   const endTimeMinutes = endMinutesRemainder.toString().padStart(2, '0');
-  const endTimePeriod = endHours < 12? 'AM' : 'PM';
-  if (endHours === 0) {
-    endTimePeriod = 'AM';
-  }
-  const endTime = `${endTimeHours}:${endTimeMinutes} ${endTimePeriod}`;
+  const endTime = `${endTimeHours.toString().padStart(2, '0')}:${endTimeMinutes}`;
   return endTime;
 }
 
-function addCalculation(endTime) {
+function convertTo12HourFormat(time) {
+  const timeParts = time.split(':');
+  const hours = parseInt(timeParts[0]);
+  const minutes = timeParts[1];
+  const hours12 = hours % 12 === 0? 12 : hours % 12;
+  const ampm = hours < 12? 'AM' : 'PM';
+  return `${hours12.toString().padStart(2, '0')}:${minutes} ${ampm}`;
+}
+
+function addCalculation(endTime, endTime12) {
   const calculationElement = document.createElement('li');
-  calculationElement.textContent = `Start Time: ${startTimeInput.value}, Estimated End Time (including 30 minutes lunch): ${endTime}`;
+  calculationElement.style.fontSize = '24px';
+  const endTimeElement = document.createElement('span');
+  endTimeElement.style.fontWeight = 'bold';
+  endTimeElement.textContent = endTime;
+  const endTime12Element = document.createElement('span');
+  endTime12Element.style.fontWeight = 'bold';
+  endTime12Element.textContent = endTime12;
+  calculationElement.textContent = `${startTimeInput.value} start time, you can go home at `;
+  calculationElement.appendChild(endTimeElement);
+  calculationElement.appendChild(document.createTextNode(' ('));
+  calculationElement.appendChild(endTime12Element);
+  calculationElement.appendChild(document.createTextNode(').'));
   calculationsElement.appendChild(calculationElement);
 }
 
