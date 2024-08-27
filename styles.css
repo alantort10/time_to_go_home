@@ -1,0 +1,81 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
+  
+  form {
+    width: 50%;
+    margin: 40px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+
+  
+  input[type="time"], input[type="number"] {
+    width: 20%;
+    height: 40px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+  }
+  
+  button {
+    width: auto;
+    height: 40px;
+    background-color: #2c88ff;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  #clear-btn {
+    background-color: #00c482;
+    color: #fff;
+  }
+
+  #clear-btn:hover {
+    background-color: #58ffc7;
+  }
+  
+  button:hover {
+    background-color: #00d9ff;
+  }
+
+  #start-time {
+    font-size: 24px;
+  }
+  
+  #end-time {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+
+  .clock-icon {
+    font-size: 24px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  
+  .clock-icon::before {
+    content: "\1F552";
+  }
+
+  .calculations {
+    font-size: 14px;
+  }
+
+  label[for="start-time"] {
+    position: relative;
+    left: -180px; /* adjust the value to your liking */
+  }
