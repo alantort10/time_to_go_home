@@ -14,7 +14,7 @@ clearBtn.addEventListener('click', clearCalculations);
 function calculateEndTime() {
   const startTime = startTimeInput.value;
   if (!isValidTime(startTime)) {
-    alert('Invalid start time. Please enter a time in the format HH:MM.');
+    alert('Invalid start time. Please enter a time in the format HH:MM, where HH is a two-digit hour and MM is a two-digit minute.');
     return;
   }
   const endTime = calculateEndTimeFromStartTime(startTime);
@@ -97,15 +97,20 @@ function isValidTime(time) {
   if (timeParts.length!== 2) {
     return false;
   }
-  const hours = parseInt(timeParts[0]);
-  const minutes = parseInt(timeParts[1]);
-  if (isNaN(hours) || isNaN(minutes)) {
+  const hours = timeParts[0];
+  const minutes = timeParts[1];
+  if (hours.length!== 2 || minutes.length!== 2) {
     return false;
   }
-  if (hours < 0 || hours > 23) {
+  const hoursValue = parseInt(hours);
+  const minutesValue = parseInt(minutes);
+  if (isNaN(hoursValue) || isNaN(minutesValue)) {
     return false;
   }
-  if (minutes < 0 || minutes > 59) {
+  if (hoursValue < 0 || hoursValue > 23) {
+    return false;
+  }
+  if (minutesValue < 0 || minutesValue > 59) {
     return false;
   }
   return true;
