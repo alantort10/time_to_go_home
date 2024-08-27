@@ -19,7 +19,9 @@ function calculateEndTime() {
   }
   const endTime = calculateEndTimeFromStartTime(startTime);
   const endTime12 = convertTo12HourFormat(endTime);
-  addCalculation(endTime, endTime12);
+  const fifthHourTime = calculateFifthHourTime(startTime);
+  const fifthHourTime12 = convertTo12HourFormat(fifthHourTime);
+  addCalculation(endTime, endTime12, fifthHourTime, fifthHourTime12);
 }
 
 function calculateEndTimeFromStartTime(startTime) {
@@ -36,6 +38,20 @@ function calculateEndTimeFromStartTime(startTime) {
   return endTime;
 }
 
+function calculateFifthHourTime(startTime) {
+  const timeParts = startTime.split(':');
+  const startHours = parseInt(timeParts[0]);
+  const startMinutes = parseInt(timeParts[1]);
+  const totalMinutes = startHours * 60 + startMinutes;
+  const fifthHourMinutes = totalMinutes + 5 * 60;
+  const fifthHourHours = Math.floor(fifthHourMinutes / 60);
+  const fifthHourMinutesRemainder = fifthHourMinutes % 60;
+  const fifthHourTimeHours = fifthHourHours % 24;
+  const fifthHourTimeMinutes = fifthHourMinutesRemainder.toString().padStart(2, '0');
+  const fifthHourTime = `${fifthHourTimeHours.toString().padStart(2, '0')}:${fifthHourTimeMinutes}`;
+  return fifthHourTime;
+}
+
 function convertTo12HourFormat(time) {
   const timeParts = time.split(':');
   const hours = parseInt(timeParts[0]);
@@ -45,7 +61,7 @@ function convertTo12HourFormat(time) {
   return `${hours12.toString().padStart(2, '0')}:${minutes} ${ampm}`;
 }
 
-function addCalculation(endTime, endTime12) {
+function addCalculation(endTime, endTime12, fifthHourTime, fifthHourTime12) {
   const calculationElement = document.createElement('li');
   calculationElement.style.fontSize = '24px';
   const endTimeElement = document.createElement('span');
@@ -54,7 +70,17 @@ function addCalculation(endTime, endTime12) {
   const endTime12Element = document.createElement('span');
   endTime12Element.style.fontWeight = 'bold';
   endTime12Element.textContent = endTime12;
-  calculationElement.textContent = `${startTimeInput.value} start time, you can go home at `;
+  const fifthHourTimeElement = document.createElement('span');
+  fifthHourTimeElement.style.fontWeight = 'bold';
+  fifthHourTimeElement.textContent = fifthHourTime;
+  const fifthHourTime12Element = document.createElement('span');
+  fifthHourTime12Element.style.fontWeight = 'bold';
+  fifthHourTime12Element.textContent = fifthHourTime12;
+  calculationElement.textContent = `${startTimeInput.value} start time: take lunch before `;
+  calculationElement.appendChild(fifthHourTimeElement);
+  calculationElement.appendChild(document.createTextNode(' ('));
+  calculationElement.appendChild(fifthHourTime12Element);
+  calculationElement.appendChild(document.createTextNode('), and go home at '));
   calculationElement.appendChild(endTimeElement);
   calculationElement.appendChild(document.createTextNode(' ('));
   calculationElement.appendChild(endTime12Element);
