@@ -29,7 +29,7 @@ button {
   color: #fff;
   padding: 2vh; /* use viewport height instead of fixed padding */
   border: none;
-  border-radius: 0.25vh; /* use viewport height instead of fixed border radius */
+  border-radius: 1vh; /* use viewport height instead of fixed border radius */
   cursor: pointer;
   font-size: 2.0vh; /* use viewport height instead of fixed font size */
   margin-top: 4vh;
@@ -49,9 +49,10 @@ button {
 
 #clear-btn {
   background-color: #00e297;
+  height: 6vh;
   color: #fff;
   margin-top: 2vh;
-  padding: 2vh;
+  padding: 1.5vh;
 }
 
 #clear-btn:hover {
