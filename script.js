@@ -76,16 +76,13 @@ function addCalculation(endTime, endTime12, fifthHourTime, fifthHourTime12) {
   const fifthHourTime12Element = document.createElement('span');
   fifthHourTime12Element.style.fontWeight = 'bold';
   fifthHourTime12Element.textContent = fifthHourTime12;
-  calculationElement.textContent = `${startTimeInput.value} start time: take lunch before `;
-  calculationElement.appendChild(fifthHourTimeElement);
-  calculationElement.appendChild(document.createTextNode(' ('));
+  calculationElement.textContent = `take lunch before `;
   calculationElement.appendChild(fifthHourTime12Element);
-  calculationElement.appendChild(document.createTextNode('), and go home at '));
-  calculationElement.appendChild(endTimeElement);
-  calculationElement.appendChild(document.createTextNode(' ('));
+  calculationElement.appendChild(document.createElement('br')); // Add a line break
+  calculationElement.appendChild(document.createTextNode('go home at '));
   calculationElement.appendChild(endTime12Element);
-  calculationElement.appendChild(document.createTextNode(').'));
   calculationsElement.appendChild(calculationElement);
+  calculationsElement.appendChild(document.createElement('br')); // Add a line break after every calculation
 }
 
 function clearCalculations() {
