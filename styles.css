@@ -3,43 +3,52 @@ body {
   text-align: center;
 }
 
-form {
-  width: 35vw; /* use viewport width instead of fixed width */
-  margin: 4vh auto; /* use viewport height instead of fixed margin */
-  padding: 2vh; /* use viewport height instead of fixed padding */
-  border: 1px solid #ccc;
-  border-radius: 1vh; /* use viewport height instead of fixed border radius */
-  box-shadow: 0 0 1vh rgba(0, 0, 0, 0.1); /* use viewport height instead of fixed box shadow */
-}
-
 label {
   display: block;
   margin-bottom: 2vh; /* use viewport height instead of fixed margin */
 }
 
 input[type="time"], input[type="number"] {
-  width: 20%; /* keep the width as a percentage */
-  height: 4vh; /* use viewport height instead of fixed height */
-  margin-bottom: 2vh; /* use viewport height instead of fixed margin */
+  width: auto; /* keep the width as a percentage */
+  height: 6vh; /* use viewport height instead of fixed height */
+  margin-bottom: 6vh; /* use viewport height instead of fixed margin */
+  border-radius: 0.25vh;
   padding: 1vh; /* use viewport height instead of fixed padding */
-  border: 1px solid #ccc;
+  border: 2px solid #ccc;
+  font-size: larger;
+}
+
+#start-time {
+  height: 5vh;
 }
 
 button {
   width: auto;
-  height: 4vh; /* use viewport height instead of fixed height */
+  height: 6vh; /* use viewport height instead of fixed height */
   background-color: #2c88ff;
   color: #fff;
-  padding: 1vh; /* use viewport height instead of fixed padding */
+  padding: 2vh; /* use viewport height instead of fixed padding */
   border: none;
-  border-radius: 1vh; /* use viewport height instead of fixed border radius */
+  border-radius: 0.25vh; /* use viewport height instead of fixed border radius */
   cursor: pointer;
-  font-size: 1.5vh; /* use viewport height instead of fixed font size */
+  font-size: 2.0vh; /* use viewport height instead of fixed font size */
+  margin-top: 4vh;
+  margin-bottom: 4vh;
+  justify-content: center;
+  align-items: center;
+  display: block;
+  margin: auto;
+}
+
+#calculate-btn {
+  margin-top: 2vh;
 }
 
 #clear-btn {
-  background-color: #00c482;
+  background-color: #00e297;
   color: #fff;
+  margin-top: 2vh;
+  padding: 1vh;
 }
 
 #clear-btn:hover {
@@ -60,21 +69,13 @@ button:hover {
   margin-top: 2vh; /* use viewport height instead of fixed margin */
 }
 
-.clock-icon {
-  font-size: 2vh; /* use viewport height instead of fixed font size */
-  margin-left: 1vh; /* use viewport height instead of fixed margin */
-  margin-right: 1vh; /* use viewport height instead of fixed margin */
-}
-
-.clock-icon::before {
-  content: "\1F552";
-}
-
 .calculations {
   font-size: 1vh; /* use viewport height instead of fixed font size */
+  text-align: center;
 }
 
 label[for="start-time"] {
   position: relative;
   left: -7vw; /* use viewport width instead of fixed left position */
 }
+
