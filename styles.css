@@ -141,12 +141,10 @@ input:checked +.slider:before {
 }
 
 .dark-mode #calculations {
-  background-color: #000000;
   color: #fff;
 }
 
 .dark-mode #calculations li {
-  background-color: #333;
   color: #fff;
 }
 
@@ -164,8 +162,4 @@ input:checked +.slider:before {
 
 .dark-mode.toggle-switch.slider:before {
   background-color: #fff;
-}
-
-#calculations li::marker {
-  vertical-align: middle;
 }
