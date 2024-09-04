@@ -58,13 +58,14 @@ function convertTo12HourFormat(time) {
   const hours = parseInt(timeParts[0]);
   const minutes = timeParts[1];
   const hours12 = hours % 12 === 0? 12 : hours % 12;
-  const ampm = hours < 12? 'AM' : 'PM';
+  const ampm = hours < 12? 'am' : 'pm';
   return `${hours12.toString().padStart(2, '0')}:${minutes} ${ampm}`;
 }
 
 function addCalculation(endTime, endTime12, fifthHourTime, fifthHourTime12) {
   const calculationElement = document.createElement('li');
   calculationElement.style.fontSize = '24px';
+  calculationElement.style.paddingRight = '30px';
   const endTimeElement = document.createElement('span');
   endTimeElement.style.fontWeight = 'bold';
   endTimeElement.textContent = endTime;
