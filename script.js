@@ -3,6 +3,7 @@ const calculateBtn = document.getElementById('calculate-btn');
 const clearBtn = document.getElementById('clear-btn');
 const calculationsElement = document.getElementById('calculations');
 const form = document.querySelector('form');
+const darkModeToggle = document.getElementById('dark-mode-toggle');
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -87,6 +88,7 @@ function addCalculation(endTime, endTime12, fifthHourTime, fifthHourTime12) {
 
 function clearCalculations() {
   calculationsElement.innerHTML = '';
+  startTimeInput.value = '';
 }
 
 function isValidTime(time) {
@@ -112,3 +114,22 @@ function isValidTime(time) {
   }
   return true;
 }
+
+const storedDarkMode = localStorage.getItem('darkMode');
+if (storedDarkMode === 'true') {
+  darkModeToggle.checked = true;
+  document.body.classList.add('dark-mode');
+} else {
+  darkModeToggle.checked = false;
+  document.body.classList.remove('dark-mode');
+}
+
+darkModeToggle.addEventListener('change', () => {
+  if (darkModeToggle.checked) {
+    document.body.classList.add('dark-mode');
+    localStorage.setItem('darkMode', 'true');
+  } else {
+    document.body.classList.remove('dark-mode');
+    localStorage.setItem('darkMode', 'false');
+  }
+});
