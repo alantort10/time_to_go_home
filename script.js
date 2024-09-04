@@ -66,7 +66,8 @@ function addCalculation(endTime, endTime12, fifthHourTime, fifthHourTime12) {
   const calculationElement = document.createElement('li');
   calculationElement.style.fontSize = '24px';
   calculationElement.style.paddingRight = '4vh';
-  const endTimeElement = document.createElement('span');
+  calculationElement.style.borderBlockColor = "#000";
+  const endTimeElement = document.createElement('span');s
   endTimeElement.style.fontWeight = 'bold';
   endTimeElement.textContent = endTime;
   const endTime12Element = document.createElement('span');
