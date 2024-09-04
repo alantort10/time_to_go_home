@@ -3,17 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <title>Shift End Time Calculator</title>
+  <title>When can I go home?</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>When can I go home?</h1>
+  <h1>when can I go home?</h1>
   <form>
-    <input type="text" id="start-time" value="" placeholder="Enter Start Time (e.g. 8:30)">
-    <button id="calculate-btn">Calculate</button>
-    <button id="clear-btn">Clear</button>
+    <label class="toggle-switch">
+      <input type="checkbox" id="dark-mode-toggle" />
+      <span class="slider round"></span>
+    </label>
+    <input type="text" id="start-time" value="" placeholder="enter start time (e.g. 8:30)">
+    <button id="calculate-btn">calculate</button>
+    <button id="clear-btn">clear</button>
   </form>
-  <h2>Calculations:</h2>
+  <h2>calculations:</h2>
   <ul id="calculations"></ul>
   <script src="script.js"></script>
 </body>
