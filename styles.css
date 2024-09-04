@@ -55,12 +55,16 @@ button {
   padding: 1.5vh;
 }
 
-#clear-btn:hover {
-  background-color: #58ffc7;
+@media(hover: hover) {
+  #clear-btn:hover {
+    background-color: #58ffc7;
+  }
 }
 
-button:hover {
-  background-color: #00d9ff;
+@media(hover:hover) {
+  button:hover {
+    background-color: #00d9ff;
+  }
 }
 
 #start-time {
