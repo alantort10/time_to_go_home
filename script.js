@@ -65,7 +65,7 @@ function convertTo12HourFormat(time) {
 function addCalculation(endTime, endTime12, fifthHourTime, fifthHourTime12) {
   const calculationElement = document.createElement('li');
   calculationElement.style.fontSize = '24px';
-  calculationElement.style.paddingRight = '30px';
+  calculationElement.style.paddingRight = '4vh';
   const endTimeElement = document.createElement('span');
   endTimeElement.style.fontWeight = 'bold';
   endTimeElement.textContent = endTime;
@@ -73,7 +73,7 @@ function addCalculation(endTime, endTime12, fifthHourTime, fifthHourTime12) {
   endTime12Element.style.fontWeight = 'bold';
   endTime12Element.textContent = endTime12;
   const fifthHourTimeElement = document.createElement('span');
-  fifthHourTimeElement.style.fontWeight = 'bold';
+  fifthHourTimeElement.style.fontWeight = 'sbold';
   fifthHourTimeElement.textContent = fifthHourTime;
   const fifthHourTime12Element = document.createElement('span');
   fifthHourTime12Element.style.fontWeight = 'bold';
